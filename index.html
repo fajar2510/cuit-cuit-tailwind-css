@@ -1,10 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link href="dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <title>Cuit-cuit</title>
+    <style>
+      * {
+        border: 1px solid rgb(157, 253, 145);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- header section start -->
+    <header
+      class="bg-transparet absolute top-0 left-0 w-full flex items-center z-10"
+    >
+      <div class="container">
+        <div class="flex items-center justify-between relative">
+          <div class="flex items-center px-4">
+            <img
+              src="/src/img/pngtree-blue-flat-bird-png-image_4302272.png"
+              class="w-16 h-16 scale-125"
+              alt="cuit logo"
+            />
+            <a href="#home" class="font-bold text-2xl text-primary block py-6">
+              CuitCuit</a
+            >
+          </div>
+          <div class="flex items-center px-4">
+            <!-- Hamburger menu start -->
+            <button
+              id="hamburger"
+              name="hamburger"
+              type="button"
+              class="block absolute right-4 lg:hidden"
+            >
+              <span
+                class="origin-top-left hamburger-line transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="hamburger-line transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="origin-bottom-left hamburger-line transition duration-300 ease-in-out"
+              ></span>
+            </button>
+            <!-- Hamburger menu end -->
+
+            <!-- Navigation start -->
+            <nav
+              id="nav-menu"
+              class="hidden absolute py-5 bg-slate-200 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent"
+            >
+              <ul class="block lg:flex">
+                <li class="group">
+                  <a
+                    href="#home"
+                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
+                    >Beranda</a
+                  >
+                </li>
+
+                <li class="group">
+                  <a
+                    href="#portofolio"
+                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
+                    >Topik</a
+                  >
+                </li>
+
+                <li class="group">
+                  <a
+                    href="#profil"
+                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
+                    >Profil</a
+                  >
+                </li>
+
+                <li
+                  class="flex items-center border-t border-slate-400 pt-3 pl-8 mt-3 md:border-none md:pt-0 md:mt-0 lg:mt-0"
+                >
+                  <div class="flex">
+                    <span
+                      class="mr-2 text-sm text-slate-500 font-semibold dark:font-normal dark:text-slate-300"
+                      >Mode Terang</span
+                    >
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-white dark:bg-slate-500 border border-slate-300 dark:border-none p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-slate-500 dark:bg-white transition duration-300 ease-in-outfhero"
+                        ></div>
+                      </div>
+                    </label>
+                    <span
+                      class="ml-2 text-sm text-slate-500 font-normal dark:font-semibold dark:text-slate-300"
+                      >Mode Gelap</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <!-- Navigation end -->
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header section end -->
+
+    <main class="mx-[7%] grid lg:grid-cols-3">
+      <div class="col-span-2">
+        <!-- form cuit-cuit section start -->
+        <section id="cuit-form" class="pt-28 mb-3 dark:bg-dark">
+          <div class="container">
+            <div class="flex flex-wrap lg:grid lg:grid-cols-3 lg:gap-5">
+              <div class="mb-1 w-full lg:col-span-2 lg:pb-5">
+                <label
+                  for="large-input"
+                  class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
+                  >Ada apa yang sedang terjadi?</label
+                >
+                <input
+                  type="text"
+                  id="large-input"
+                  class="block text-sm w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                  placeholder="tuliskan cuitan..."
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- form cuit-cuit section end -->
+
+        <!-- list cuit-cuit section start -->
+        <section
+          id="cuit-form"
+          class="mt-0 border-b border-slate-300 dark:bg-dark"
+        >
+          <div class="container w-full">
+            <div class="flex items-start space-x-1">
+              <div class="flex-shrink-0">
+                <img
+                  src="/src/img/img1.jpg"
+                  alt="Profile Picture"
+                  class="rounded-full w-10 h-10 object-cover"
+                />
+              </div>
+              <div class="flex-grow group">
+                <div class="flex items-center">
+                  <a href="#" class="font-bold dark:text-white mr-2"
+                    >Username</a
+                  >
+                  <span class="text-gray-500 text-sm">10m</span> <br />
+                </div>
+                <div class="flex items-center">
+                  <a
+                    href="#"
+                    class="text-gray-500 text-xs font-thin italic dark:text-white"
+                    >@username</a
+                  >
+                </div>
+                <div
+                  class="text-gray-900 dark:text-white leading-tight justify-center"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  mattis velit eu felis vulputate vestibulum.
+                </div>
+                <div
+                  id="cuit-image"
+                  class="mt-1 rounded-xl overflow-hidden group-hover:scale-[96%] transition duration-500 ease-in-out"
+                >
+                  <img
+                    src="/src/img/list1.jpg"
+                    class="rounded-xl object-cover w-full h-36 lg:h-64 group-hover:scale-[107%] transition duration-500 ease-in-out"
+                    alt="list 1"
+                  />
+                </div>
+                <div class="flex justify-start mt-2">
+                  <a href="#" class="text-gray-500 hover:text-blue-500 mr-2"
+                    ><i class="far fa-comment fa-lg"></i
+                  ></a>
+                  <a href="#" class="text-gray-500 hover:text-green-500 mr-2"
+                    ><i class="fas fa-retweet fa-lg"></i> 10</a
+                  >
+                  <a href="#" class="text-gray-500 hover:text-red-500 mr-2"
+                    ><i class="far fa-heart fa-lg"></i> 25</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- list cuit-cuit section end -->
+      </div>
+
+      <!-- bagian topik terkini -->
+      <div class="col-span-1">
+        <section id="topik-terkini" class="pt-28 mb-3 dark:bg-dark">
+          <div class="container">
+            <!-- topik terkini start -->
+            <div class="max-w-md mx-auto">
+              <h1 class="text-2xl font-bold mb-4">#Trending Topik terkini</h1>
+              <ul
+                class="border border-gray-300 rounded-md divide-y divide-gray-300"
+              >
+                <li
+                  class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                >
+                  <div class="w-0 flex-1 flex items-center">
+                    <span class="ml-2 flex-1 w-0 truncate">Pemilu 2024</span>
+                  </div>
+                  <div class="ml-4 flex-shrink-0">
+                    <a
+                      href="#"
+                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                      Lihat Topik
+                    </a>
+                  </div>
+                </li>
+                <li
+                  class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                >
+                  <div class="w-0 flex-1 flex items-center">
+                    <span class="ml-2 flex-1 w-0 truncate">COVID-19</span>
+                  </div>
+                  <div class="ml-4 flex-shrink-0">
+                    <a
+                      href="#"
+                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                      Lihat Topik
+                    </a>
+                  </div>
+                </li>
+                <li
+                  class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                >
+                  <div class="w-0 flex-1 flex items-center">
+                    <span class="ml-2 flex-1 w-0 truncate">Konten Kreatif</span>
+                  </div>
+                  <div class="ml-4 flex-shrink-0">
+                    <a
+                      href="#"
+                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                      Lihat Topik
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- footer section start -->
+
+    <!-- footer section end -->
+
+    <!-- script js -->
+    <script src="app.js"></script>
+  </body>
 </html>

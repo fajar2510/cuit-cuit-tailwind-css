@@ -1,0 +1,26 @@
+{
+  "name": "cuitcuit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "listen": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajar2510/cuit-cuit-tailwind-css.git"
+  },
+  "author": "fajar-abdurrohman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fajar2510/cuit-cuit-tailwind-css/issues"
+  },
+  "homepage": "https://github.com/fajar2510/cuit-cuit-tailwind-css#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "flowbite": "^1.6.5"
+  }
+}
