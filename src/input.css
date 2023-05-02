@@ -30,3 +30,14 @@ body {
 #dark-toggle:checked ~ label div.toggle-circle {
   @apply translate-x-3;
 }
+
+/* dot titik tengah */
+.dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  background-color: #8b8589;
+  margin-right: 5px;
+  margin-top: -3px;
+}

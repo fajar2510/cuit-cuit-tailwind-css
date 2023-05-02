@@ -22,85 +22,98 @@
     </script>
     <title>Cuit-cuit</title>
     <style>
-      * {
+      /* * {
         border: 1px solid rgb(157, 253, 145);
-      }
+      } */
     </style>
   </head>
-  <body>
+  <body class="dark:bg-dark">
     <!-- header section start -->
     <header
       class="bg-transparet absolute top-0 left-0 w-full flex items-center z-10"
     >
       <div class="container">
         <div class="flex items-center justify-between relative">
-          <div class="flex items-center px-4">
-            <img
+          <div class="flex items-center  px-4 lg:px-0">
+            <a href="#home" class="flex items-center">
+               <img
               src="/src/img/pngtree-blue-flat-bird-png-image_4302272.png"
-              class="w-16 h-16 scale-125"
+              class="w-16 h-16 lg:scale-110 dark:filter dark:invert"
               alt="cuit logo"
             />
-            <a href="#home" class="font-bold text-2xl text-primary block py-6">
+            <h1 class="text-lg lg:hidden font-bold leading-relaxed">Beranda</h1>
+            </a>
+           
+            <a
+              id="cuitText"
+              href="#home"
+              class="font-bold hidden text-2xl text-primary dark:text-white lg:block py-6"
+            >
               CuitCuit</a
             >
           </div>
-          <div class="flex items-center px-4">
-            <!-- Hamburger menu start -->
-            <button
-              id="hamburger"
-              name="hamburger"
-              type="button"
-              class="block absolute right-4 lg:hidden"
-            >
-              <span
-                class="origin-top-left hamburger-line transition duration-300 ease-in-out"
-              ></span>
-              <span
-                class="hamburger-line transition duration-300 ease-in-out"
-              ></span>
-              <span
-                class="origin-bottom-left hamburger-line transition duration-300 ease-in-out"
-              ></span>
-            </button>
-            <!-- Hamburger menu end -->
+          <div class="flex items-center px-4 lg:px-0">
 
-            <!-- Navigation start -->
-            <nav
-              id="nav-menu"
-              class="hidden absolute py-5 bg-slate-200 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent"
-            >
-              <ul class="block lg:flex">
-                <li class="group">
-                  <a
-                    href="#home"
-                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
-                    >Beranda</a
-                  >
-                </li>
+             <!-- Hamburger menu start -->
+             <button
+             id="hamburger"
+             name="hamburger"
+             type="button"
+             class="block absolute right-4 lg:hidden"
+           >
+             <span
+               class="origin-top-left hamburger-line transition duration-300 ease-in-out"
+             ></span>
+             <span
+               class="hamburger-line transition duration-300 ease-in-out"
+             ></span>
+             <span
+               class="origin-bottom-left hamburger-line transition duration-300 ease-in-out"
+             ></span>
+           </button>
+           <!-- Hamburger menu end -->
 
-                <li class="group">
-                  <a
-                    href="#portofolio"
-                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
-                    >Topik</a
-                  >
-                </li>
+          
+           
+           <!-- Navigation start -->
+           <nav
+             id="nav-menu"
+             class="hidden absolute py-5 shadow-lg border border-slate-200 lg:border-none bg-white rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent"
+           >
+             <ul class="block lg:flex">
+               <li class="group">
+                 <a
+                   href="#home"
+                   class="text-base font-bold text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold duration-300 ease-in-out"
+                   >Beranda</a
+                 >
+               </li>
 
-                <li class="group">
-                  <a
-                    href="#profil"
-                    class="text-base font-bold text-slate-500 py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold group-hover:text-lg duration-300 ease-in-out"
-                    >Profil</a
-                  >
-                </li>
+               <li class="group">
+                 <a
+                   href="#portofolio"
+                   class="text-base font-bold text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold duration-300 ease-in-out"
+                   >Topik</a
+                 >
+               </li>
+
+               <li class="group">
+                 <a
+                   href="#profil"
+                   class="text-base font-bold text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white group-hover:font-bold duration-300 ease-in-out"
+                   >Profil</a
+                 >
+               </li>
+
+           
 
                 <li
-                  class="flex items-center border-t border-slate-400 pt-3 pl-8 mt-3 md:border-none md:pt-0 md:mt-0 lg:mt-0"
+                  class="flex items-center border-t border-slate-200 pt-3 pr-3 pl-8 mt-3 md:border-none md:pt-0 md:mt-0 lg:mt-0"
                 >
                   <div class="flex">
                     <span
                       class="mr-2 text-sm text-slate-500 font-semibold dark:font-normal dark:text-slate-300"
-                      >Mode Terang</span
+                      >Light</span
                     >
                     <input type="checkbox" class="hidden" id="dark-toggle" />
                     <label for="dark-toggle">
@@ -114,37 +127,165 @@
                     </label>
                     <span
                       class="ml-2 text-sm text-slate-500 font-normal dark:font-semibold dark:text-slate-300"
-                      >Mode Gelap</span
+                      >Dark</span
                     >
                   </div>
                 </li>
-              </ul>
-            </nav>
-            <!-- Navigation end -->
+             
           </div>
         </div>
       </div>
     </header>
     <!-- header section end -->
 
-    <main class="mx-[7%] grid lg:grid-cols-3">
+    <main class="mx-[5%] lg:mx-[8%] grid lg:grid-cols-3 lg:gap-10 dark:bg-dark mb-20">
       <div class="col-span-2">
+        
         <!-- form cuit-cuit section start -->
-        <section id="cuit-form" class="pt-28 mb-3 dark:bg-dark">
+        <section
+          id="home"
+          class="pt-20 lg:pt-28 mb-3 border-b border-slate-300"
+        >
+       
           <div class="container">
-            <div class="flex flex-wrap lg:grid lg:grid-cols-3 lg:gap-5">
-              <div class="mb-1 w-full lg:col-span-2 lg:pb-5">
-                <label
-                  for="large-input"
-                  class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
-                  >Ada apa yang sedang terjadi?</label
-                >
-                <input
-                  type="text"
-                  id="large-input"
-                  class="block text-sm w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                  placeholder="tuliskan cuitan..."
-                />
+            
+            <div class="flex flex-wrap">
+              <div class="w-full lg:mb-5">
+                <form id="form">
+                  <label
+                    for="large-input"
+                    class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
+                  >
+                    Apa yang sedang terjadi?
+                  </label>
+                    <div class="grid grid-cols-1 lg:grid-cols-5">
+                      <div class="col-span-4">
+                        <div
+                          class="w-full mb-4 border border-gray-200 rounded-lg dark:bg-dark dark:border-gray-600"
+                        >
+                          <div
+                            class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800"
+                          >
+                            <label for="inputStatus" class="sr-only"
+                              >Ciutan kamu</label
+                            >
+                            <textarea
+                              id="inputStatus"
+                              name="status"
+                              rows="2"
+                              maxlength="100"
+                              class="w-full  text-sm text-gray-900 bg-white border-none dark:bg-gray-800 focus:ring-0 dark:focus:ring-0 dark:text-white dark:placeholder-gray-400 placeholder:text-slate-400"
+                              placeholder="Tuliskan cuitanmu..."
+                              required
+                            ></textarea>
+
+                            <!-- preview image input file start -->
+                            <div class="relative">
+                              <div id="preview" class=" hidden items-center justify-center border border-spacing-2 border-slate-300 dark:border-slate-500 rounded-lg"></div>
+                              <button type="button" id="hapusImage" onclick="deleteImage();" class="hidden absolute top-0 right-0  justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.293-11.707a1 1 0 10-1.414-1.414L10 8.586l-1.879-1.88a1 1 0 10-1.414 1.414L8.586 10l-1.88 1.879a1 1 0 101.414 1.414L10 11.414l1.879 1.88a1 1 0 001.414-1.414L11.414 10l1.88-1.879z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="sr-only">Delete image</span>
+                              </button>
+                            </div>
+                            
+                            <!-- preview image input file end -->
+
+                          </div>
+                          <div
+                            class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
+                          >
+                          
+                            <p id="notifikasiSisaKarakter"
+                              class="italic opacity-50  text-sm  text-slate-600 dark:text-gray-200"
+                            >*maksimal karakter
+                            <span id="sisaKarakter" class="font-bold "> </span> 
+                            / 100
+                            </p>
+                            <span id="batasTercapai" class="hidden pr-3 text-sm italic font-semibold text-pink-500"></span>
+                         
+                            
+                            <div class="flex pl-0 space-x-1 sm:pl-2">
+                              <button
+                                type="button"
+                               
+                                class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="w-5 h-5"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
+                                    clip-rule="evenodd"
+                                  ></path>
+                                </svg>
+                                <span class="sr-only">Attach file</span>
+                              </button>
+                             
+                              <button
+                                type="button" 
+                               
+                                class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="w-5 h-5"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"
+                                  ></path>
+                                </svg>
+                                <span class="sr-only">Set location</span>
+                              </button>
+
+                              <!-- button input image -->
+                              <input type="file" id="fileInput" class="hidden" onchange="handleFileSelect(event)">
+                              <button
+                                type="button"
+                                onclick="document.querySelector('#fileInput').click();"
+                                class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="w-5 h-5"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                    clip-rule="evenodd"
+                                  ></path>
+                                </svg>
+                                <span class="sr-only">Upload image</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-span-1 justify-self-end pb-3 lg:pb-0">
+                        <button
+                          type="submit" 
+                          class="inline-flex items-center py-1.5 px-8 lg:py-2 lg:px-10 text-lg font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary dark:focus:ring-primary hover:opacity-70"
+                        >
+                          Cuitkan!
+                        </button>
+                      </div>
+                    </div>
+                 
+                </form>
               </div>
             </div>
           </div>
@@ -152,74 +293,47 @@
         <!-- form cuit-cuit section end -->
 
         <!-- list cuit-cuit section start -->
-        <section
-          id="cuit-form"
-          class="mt-0 border-b border-slate-300 dark:bg-dark"
-        >
-          <div class="container w-full">
-            <div class="flex items-start space-x-1">
-              <div class="flex-shrink-0">
-                <img
-                  src="/src/img/img1.jpg"
-                  alt="Profile Picture"
-                  class="rounded-full w-10 h-10 object-cover"
-                />
-              </div>
-              <div class="flex-grow group">
-                <div class="flex items-center">
-                  <a href="#" class="font-bold dark:text-white mr-2"
-                    >Username</a
-                  >
-                  <span class="text-gray-500 text-sm">10m</span> <br />
-                </div>
-                <div class="flex items-center">
-                  <a
-                    href="#"
-                    class="text-gray-500 text-xs font-thin italic dark:text-white"
-                    >@username</a
-                  >
-                </div>
-                <div
-                  class="text-gray-900 dark:text-white leading-tight justify-center"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  mattis velit eu felis vulputate vestibulum.
-                </div>
-                <div
-                  id="cuit-image"
-                  class="mt-1 rounded-xl overflow-hidden group-hover:scale-[96%] transition duration-500 ease-in-out"
-                >
-                  <img
-                    src="/src/img/list1.jpg"
-                    class="rounded-xl object-cover w-full h-36 lg:h-64 group-hover:scale-[107%] transition duration-500 ease-in-out"
-                    alt="list 1"
-                  />
-                </div>
-                <div class="flex justify-start mt-2">
-                  <a href="#" class="text-gray-500 hover:text-blue-500 mr-2"
-                    ><i class="far fa-comment fa-lg"></i
-                  ></a>
-                  <a href="#" class="text-gray-500 hover:text-green-500 mr-2"
-                    ><i class="fas fa-retweet fa-lg"></i> 10</a
-                  >
-                  <a href="#" class="text-gray-500 hover:text-red-500 mr-2"
-                    ><i class="far fa-heart fa-lg"></i> 25</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+        <section  class="mt-0 dark:bg-dark">
+          
+          <!-- list status cuit akan tampil disini -->
+         <div class="container">
+
+          <div  id="statusContainer"></div>
+         </div>
+
+          
+ 
         </section>
         <!-- list cuit-cuit section end -->
       </div>
 
       <!-- bagian topik terkini -->
       <div class="col-span-1">
-        <section id="topik-terkini" class="pt-28 mb-3 dark:bg-dark">
+        
+        <section
+          id="topikTerkini"
+          class="pt-28 hidden lg:block mb-3 dark:bg-dark"
+        >
           <div class="container">
+
+           <!-- search input form -->
+           <div class="mb-5">
+             <form method="post">   
+              <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+              <div class="relative">
+                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  </div>
+                  <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="Search ..." required>
+                  <button type="submit" class="text-slate-600 absolute right-2.5 bottom-2.5 border hover:bg-secondary hover:bg-opacity-25  bg-transparent focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">Search</button>
+              </div>
+            </form>
+           </div>
+         
+
             <!-- topik terkini start -->
             <div class="max-w-md mx-auto">
-              <h1 class="text-2xl font-bold mb-4">#Trending Topik terkini</h1>
+              <h1 class="text-2xl font-bold mb-4 dark:text-white">#Trending Topik terkini</h1>
               <ul
                 class="border border-gray-300 rounded-md divide-y divide-gray-300"
               >
@@ -227,12 +341,12 @@
                   class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                 >
                   <div class="w-0 flex-1 flex items-center">
-                    <span class="ml-2 flex-1 w-0 truncate">Pemilu 2024</span>
+                    <span class="ml-2 flex-1 w-0 truncate dark:text-white">Pemilu 2024</span>
                   </div>
                   <div class="ml-4 flex-shrink-0">
                     <a
                       href="#"
-                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                      class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-white"
                     >
                       Lihat Topik
                     </a>
@@ -242,12 +356,12 @@
                   class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                 >
                   <div class="w-0 flex-1 flex items-center">
-                    <span class="ml-2 flex-1 w-0 truncate">COVID-19</span>
+                    <span class="ml-2 flex-1 w-0 truncate dark:text-white">COVID-19</span>
                   </div>
                   <div class="ml-4 flex-shrink-0">
                     <a
                       href="#"
-                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                      class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-white"
                     >
                       Lihat Topik
                     </a>
@@ -257,12 +371,12 @@
                   class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                 >
                   <div class="w-0 flex-1 flex items-center">
-                    <span class="ml-2 flex-1 w-0 truncate">Konten Kreatif</span>
+                    <span class="ml-2 flex-1 w-0 truncate dark:text-white">Konten Kreatif</span>
                   </div>
                   <div class="ml-4 flex-shrink-0">
                     <a
                       href="#"
-                      class="font-medium text-indigo-600 hover:text-indigo-500"
+                      class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-white"
                     >
                       Lihat Topik
                     </a>
@@ -274,12 +388,113 @@
         </section>
       </div>
     </main>
-
+    <hr>
     <!-- footer section start -->
+    <footer class=" text-slate-600 py-8 dark:bg-dark ">
+      <div class="container mx-auto flex flex-wrap justify-center lg:justify-between">
+        <div class="flex flex-wrap justify-center ">
+          <div class="flex flex-row  lg:flex-col lg:justify-center lg:items-center">
+            <img
+              src="/src/img/pngtree-blue-flat-bird-png-image_4302272.png"
+              class="w-16 h-16 lg:scale-125 dark:filter dark:invert "
+              alt="cuit logo"
+            />
+            <a
+              id="cuitText"
+              href="#home"
+              class="font-bold  text-2xl text-primary dark:text-white pb-5"
+            >
+              CuitCuit</a
+            >
+          </div>
+          
+          <div class="mb-2  lg:ml-8">
+          
+            <h3 class="text-lg font-bold text-center lg:text-start mb-4 dark:text-white">Tentang kami</h3>
+            <p class="mb-2  text-center lg:text-start dark:text-white ">Cuitan ringan dan sederhana seperti twitter lokal menggunakan framework <a href="https://tailwindcss.com" class="text-primary underline hover:no-underline hover:font-bold">TailwindCSS</a>.</p>
+            <p class="mb-2  text-center lg:text-start dark:text-white">Belajar <a href="https://tailwindcss.com" class="text-primary underline hover:no-underline hover:font-bold">TailwindCSS</a> dan Manipulasi DOM pada Javascript.</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col">
+          <h3 class="text-lg font-bold mb-4  text-center lg:text-start dark:text-white">Kontak</h3>
+          <p class="mb-2  text-center lg:text-start dark:text-white">Surabaya, Indonesia</p>
+          <p class="mb-2 flex  text-center lg:text-start dark:text-white">
+            <svg role="img" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" 
+            class="mr-1 fill-current"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+             Whatsapp: +(62)123456</p>
+          <p class="flex text-center lg:text-start dark:text-white">
+            <svg role="img"  width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+            class="mr-1 fill-current" ><title>Mail.Ru</title><path d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12"/></svg>
+            cuicuitid@contoh.com</p>
+        </div>
+      </div>
 
+      <!-- informasi tambahan developer -->
+      <div class="w-full lg:flex lg:flex-row mt-2 py-3 lg:py-0 lg:ml-64 lg:items-center  lg:justify-start dark:text-white ">
+        <div class="flex item-center justify-center mb-2 lg:mb-0">
+         
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/fajar.arh25"
+            target="_blank"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+          >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20"
+          class="fill-current"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+            </svg>
+          </a>
+          <!-- Twitter -->
+          <a
+            href="https://twitter.com/laststory432"
+            target="_blank"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+          >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"  width="20"
+          class="fill-current"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <!-- Linkedin -->
+         <a
+            href="https://linkedin.com/in/fajar-abdurrohman"
+            target="_blank"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+          >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20"
+          class="fill-current"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- Github -->
+          <a
+          href="https://github.com/fajar2510"
+          target="_blank"
+          class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+          >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20"
+          class="fill-current"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <!-- Email -->
+          <a
+          href="https://mailto:abdurohmanfajar10@gmail.com"
+          target="_blank"
+          class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+          >
+          <svg role="img" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg" class="fill-current"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          </a>
+        
+        </div>
+        <p class="flex flex-wrap item-center justify-center font-medium text-xs text-slate-500 dark:text-white">Dibuat dengan <span class="text-pink-500">💗</span>  oleh &nbsp; <a href="#" target="_blank" class="font-bold text-primary"> Fajar Abdurrohman</a>,  menggunakan &nbsp;<a href="https://tailwindcss.com" class="font-bold text-sky-500"> Tailwind CSS</a> </p>
+      </div>
+    </footer>
+    
     <!-- footer section end -->
+
+    <!-- back to top start -->
+    <a id="to-top" href="#home" class="hover:animate-pulse hidden items-center justify-center h-12 w-12 bg-primary fixed z-[999] bottom-4 right-5 p-2 rounded-full opacity-50 hover:opacity-100 hover:animate-bounce transition duration-500 ease-in-out">
+      <span class="block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2"></span>
+    </a>
+    <!-- back to start end -->
 
     <!-- script js -->
     <script src="app.js"></script>
+    <!-- <script src="upStatus.js"></script> -->
   </body>
 </html>
