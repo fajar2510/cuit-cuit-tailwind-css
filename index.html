@@ -194,7 +194,7 @@
 
                           </div>
                           <div
-                            class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
+                            class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-500"
                           >
                           
                             <p id="notifikasiSisaKarakter"
@@ -278,7 +278,7 @@
                       <div class="col-span-1 justify-self-end pb-3 lg:pb-0">
                         <button
                           type="submit" 
-                          class="inline-flex items-center py-1.5 px-8 lg:py-2 lg:px-10 text-lg font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary dark:focus:ring-primary hover:opacity-70"
+                          class="inline-flex items-center py-1.5 px-8 lg:py-2 lg:px-5 xl:px-10 text-lg font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary dark:focus:ring-primary hover:opacity-70"
                         >
                           Cuitkan!
                         </button>
@@ -298,6 +298,7 @@
           <!-- list status cuit akan tampil disini -->
 
           <div  id="statusContainer"></div>
+          <div id="emptyStatus" class="hidden text-center text-md font-semibold text-slate-800">Belum ada cuitan.</div>
  
         </section>
         <!-- list cuit-cuit section end -->
@@ -491,11 +492,7 @@
 
     <!-- script js -->
     <script src="app.js"></script>
-    <script>
-      
 
-
-    </script>
     <!-- <script src="upStatus.js"></script> -->
   </body>
 </html>

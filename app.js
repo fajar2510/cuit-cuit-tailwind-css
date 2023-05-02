@@ -137,8 +137,9 @@ function handleFileSelect(event) {
 
     img.src = reader.result;
     img.style.objectFit = "cover";
+    img.style.objectPosition = "center";
     img.style.width = "100%";
-    img.style.height = "500px";
+    img.style.height = "250px";
 
     previewDiv.innerHTML = "";
     previewDiv.classList.replace("hidden", "flex");
@@ -164,7 +165,8 @@ function deleteImage() {
   }
 }
 
-// MEMBUAT LIST STATUS
+// ****** MEMBUAT LIST STATUS START ******
+//  daftar cuitan kosong
 const statusList = [];
 const RENDER_EVENT = "render-status";
 
@@ -174,14 +176,30 @@ function generateId() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const submitForm = document.querySelector("#form");
+
   submitForm.addEventListener("submit", function (event) {
     event.preventDefault();
     addStatus();
-
-    document.querySelector("#form").reset(); // Mengosongkan form setelah mengirim
-    deleteImage();
+    resetAfterSubmit();
   });
 });
+
+function resetAfterSubmit() {
+  const resetBatasTercapai = document.querySelector("#batasTercapai");
+  const resetnotifikasiSisaKarakter = document.querySelector(
+    "#notifikasiSisaKarakter"
+  );
+
+  resetBatasTercapai.classList.add("hidden");
+  resetnotifikasiSisaKarakter.classList.replace(
+    "text-pink-500",
+    "text-slate-600"
+  );
+  resetnotifikasiSisaKarakter.classList.remove("hidden");
+
+  document.querySelector("#form").reset(); // Mengosongkan form setelah mengirim
+  deleteImage();
+}
 
 function addStatus() {
   const textStatus = document.querySelector("#inputStatus");
@@ -204,7 +222,7 @@ function addStatus() {
 function timeSince(date) {
   const seconds = Math.floor((new Date() - date) / 1000);
 
-  if (seconds < 10) {
+  if (seconds < 5) {
     return "baru saja";
   } else if (seconds < 60) {
     return `${seconds} detik yang lalu`;
@@ -250,13 +268,17 @@ function makeStatus(statusObject) {
   const timestampString = timeSince(statusObject.timeStamp);
 
   const htmlStatus = `
-  <div class="container w-full py-3 border-b border-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 ">
+  <div class="container w-1/2 py-3 border-b border-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 ">
   <div class="flex items-start space-x-3">
     <div class="flex-shrink-0 rounded-full border border-slate-400">
       <img
-        src="${statusObject.img}"
+        src="${
+          statusObject.img
+            ? statusObject.img
+            : "/src/img/pngtree-blue-flat-bird-png-image_4302272.png"
+        }"
         alt="User Profile Picture"
-        class="rounded-full w-10 h-10 object-cover"
+        class="rounded-full w-10 h-10 object-cover dark:filter dark:invert""
         
       />
     </div>
@@ -265,9 +287,13 @@ function makeStatus(statusObject) {
         <a href="#" class="font-bold dark:text-white mr-2"
           >id${statusObject.id}</a
         >
-        <span class="text-gray-500 text-xs mr-2 dark:text-slate-300 truncate ">@${statusObject.id}</span>
+        <span class="text-gray-500 text-xs mr-2 dark:text-slate-300 truncate ">@${
+          statusObject.id
+        }</span>
         <span class="dot text-gray-500 text-xs mr-2"></span>
-        <span id="timestamp-${statusObject.id}" class="text-gray-500 text-sm dark:text-white">${timestampString}</span> <br />
+        <span id="timestamp-${
+          statusObject.id
+        }" class="text-gray-500 text-sm dark:text-white">${timestampString}</span> <br />
       </div>
       <div
         class="text-gray-900 dark:text-white leading-tight justify-center"
@@ -279,11 +305,13 @@ function makeStatus(statusObject) {
         class="mt-2 rounded-xl overflow-hidden group-hover:scale-[96%] transition duration-500 ease-in-out"
       >
       
-        <img
-          src="${statusObject.img}"
-          class="rounded-xl object-cover w-full h-48 md:h-64 lg:h-80 group-hover:scale-[107%] transition duration-500 ease-in-out"
-          alt="list 1"
-        />
+      <img
+      src="${statusObject.img ? statusObject.img : "#"}"
+      ${!statusObject.img ? "hidden" : ""}
+      class="rounded-xl object-cover object-center w-full h-32 md:h-48 lg:h-64 group-hover:scale-[107%] transition duration-500 ease-in-out"
+      alt="Status Image#${statusObject.id}"
+    />
+    
       </div>
       <div class="flex justify-start pl-3 mt-3">
         <a href="#" class="text-gray-500 hover:text-primary mr-2 dark:text-white"
@@ -316,6 +344,7 @@ function deleteStatus(statusId) {
 
   // Render the updated status list
   renderStatusList();
+  document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
 function renderStatusList() {
@@ -349,4 +378,5 @@ document.addEventListener(RENDER_EVENT, function () {
 
   // set the innerHTML of the status container to the generated HTML
   statusContainer.innerHTML = html;
+  console.log(statusContainer);
 });
