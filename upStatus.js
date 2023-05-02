@@ -1,7 +1,12 @@
-// const statusCuit = [];
+// // MEMBUAT LIST STATUS
+// const statusList = [];
 // const RENDER_EVENT = "render-status";
-// const SAVED_EVENT = "saved-statusCuit";
-// const STORAGE_KEY = "CUIT_APPS";
+// const SAVED_EVENT = "saved-status";
+// const STORAGE_KEY = "CUIT-APPS";
+
+// function generateId() {
+//   return +new Date();
+// }
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   const submitForm = document.querySelector("#form");
@@ -15,153 +20,9 @@
 //   }
 // });
 
-// function addStatus() {
-//   const generateUniqueId = () => {
-//     const timestamp = new Date().getTime();
-//     const random = Math.floor(Math.random() * 1000000);
-//     return `${timestamp}-${random}`;
-//   };
-
-//   const generateID = generateUniqueId();
-//   const textStatus = document.querySelector("#inputStatus").value;
-//   const imgUrl = selectedImage ? selectedImage.src : null;
-//   const like = 0;
-//   const timestamp = new Date();
-
-//   const statusObject = generateStatusObject(
-//     generateID,
-//     textStatus,
-//     imgUrl,
-//     timestamp,
-//     like
-//   );
-//   statusCuit.push(statusObject);
-
-//   document.dispatchEvent(new Event(RENDER_EVENT));
-//   saveData();
-// }
-
-// function generateStatusObject(id, status, imgUrl, timestamp, like) {
-//   return {
-//     id,
-//     status,
-//     imgUrl,
-//     timestamp,
-//     like,
-//   };
-// }
-
-// function renderStatus(statusObject) {
-//   const container = document.createElement("div");
-//   container.classList.add(
-//     "container",
-//     "w-full",
-//     "py-3",
-//     "border-b",
-//     "border-slate-300",
-//     "hover:bg-slate-50"
-//   );
-
-//   const flexContainer = document.createElement("div");
-//   flexContainer.classList.add("flex", "items-start", "space-x-3");
-
-//   const imgContainer = document.createElement("div");
-//   imgContainer.classList.add("flex-shrink-0");
-
-//   const profileImg = document.createElement("img");
-//   profileImg.setAttribute("src", "/src/img/img1.jpg");
-//   profileImg.setAttribute("alt", "Profile Picture");
-//   profileImg.classList.add("rounded-full", "w-10", "h-10", "object-cover");
-
-//   imgContainer.appendChild(profileImg);
-//   flexContainer.appendChild(imgContainer);
-
-//   const groupContainer = document.createElement("div");
-//   groupContainer.classList.add("flex-grow", "group");
-
-//   const usernameLink = document.createElement("a");
-//   usernameLink.setAttribute("href", "#");
-//   usernameLink.classList.add("font-bold", "dark:text-white", "mr-2");
-//   usernameLink.innerText = "Username";
-
-//   const usernameSpan = document.createElement("span");
-//   usernameSpan.classList.add("text-gray-500", "text-xs", "mr-2");
-//   usernameSpan.innerText = "@username";
-
-//   const dotSpan = document.createElement("span");
-//   dotSpan.classList.add("dot", "text-gray-500", "text-xs", "mr-2");
-//   dotSpan.innerText = "•";
-
-//   const timeSpan = document.createElement("span");
-//   timeSpan.classList.add("text-gray-500", "text-sm");
-//   timeSpan.innerText = getTimeDiff(statusObject.timestamp);
-
-//   const nameTimeContainer = document.createElement("div");
-//   nameTimeContainer.classList.add("flex", "items-center");
-//   nameTimeContainer.appendChild(usernameLink);
-//   nameTimeContainer.appendChild(usernameSpan);
-//   nameTimeContainer.appendChild(dotSpan);
-//   nameTimeContainer.appendChild(timeSpan);
-
-//   groupContainer.appendChild(nameTimeContainer);
-
-//   const statusText = document.createElement("div");
-//   statusText.classList.add(
-//     "text-gray-900",
-//     "dark:text-white",
-//     "leading-tight",
-//     "justify-center"
-//   );
-//   statusText.innerText = statusObject.status;
-//   groupContainer.appendChild(statusText);
-
-//   if (statusObject.imgUrl) {
-//     const imgDiv = document.createElement("div");
-//     imgDiv.setAttribute("id", "cuit-image");
-//     imgDiv.classList.add(
-//       "mt-2",
-//       "rounded-xl",
-//       "overflow-hidden",
-//       "group-hover:scale-[96%]",
-//       "transition",
-//       "duration-500",
-//       "ease-in-out"
-//     );
-
-//     const statusImg = document.createElement("img");
-//     statusImg.setAttribute("src", statusObject.imgUrl);
-//     statusImg.setAttribute("alt", "Cuit Image");
-//     statusImg.classList.add(
-//       "rounded-xl",
-//       "object-cover",
-//       "w-full",
-//       "h-36",
-//       "md:h-40",
-//       "lg:h-64",
-//       "group-hover:scale-[107%]",
-//       "transition",
-//       "duration-500",
-//       "ease-in-out"
-//     );
-
-//     imgDiv.appendChild(statusImg);
-//     groupContainer.appendChild(imgDiv);
-//   }
-
-//   const actionDiv = document.createElement("div");
-//   actionDiv.classList.add("flex", "justify-start", "mt-2");
-
-//   const commentLink = document.createElement("a");
-//   commentLink.setAttribute("href", "#");
-//   commentLink.classList.add("text-gray-500", "hover:text-blue-500", "mr-2");
-
-//   const commentIcon = document.createElement("i");
-//   // commentIcon;
-// }
-
 // function saveData() {
 //   if (isStorageExist()) {
-//     const parsed = JSON.stringify(statusCuit);
+//     const parsed = JSON.stringify(statusList);
 //     localStorage.setItem(STORAGE_KEY, parsed);
 //     document.dispatchEvent(new Event(SAVED_EVENT));
 //   }
@@ -172,15 +33,15 @@
 //   let data = JSON.parse(serializedData);
 
 //   if (data !== null) {
-//     for (const statusC of data) {
-//       statusCuit.push(statusC);
+//     for (const status of data) {
+//       statusList.push(status);
 //     }
 //   }
 
 //   document.dispatchEvent(new Event(RENDER_EVENT));
 // }
 
-// function isStorageExist() /* boolean */ {
+// function isStorageExist() {
 //   if (typeof Storage === undefined) {
 //     alert("Browser kamu tidak mendukung local storage");
 //     return false;
@@ -188,7 +49,136 @@
 //   return true;
 // }
 
-// document.addEventListener(SAVED_EVENT, function () {
-//   let alertMessage = localStorage.getItem(STORAGE_KEY);
-//   console.log(alertMessage);
+// function addStatus() {
+//   const textStatus = document.querySelector("#inputStatus");
+//   const timeStamp = new Date();
+
+//   const generateID = generateId();
+//   const statusObject = generateStatusObject(
+//     generateID,
+//     textStatus.value,
+//     timeStamp,
+//     false
+//   );
+//   statusList.push(statusObject);
+
+//   document.dispatchEvent(new Event(RENDER_EVENT));
+//   saveData();
+// }
+
+// function timeSince(date) {
+//   const seconds = Math.floor((new Date() - date) / 1000);
+
+//   if (seconds < 10) {
+//     return "baru saja";
+//   } else if (seconds < 60) {
+//     return `${seconds} detik yang lalu`;
+//   } else if (seconds < 3600) {
+//     const minutes = Math.floor(seconds / 60);
+//     return `${minutes} menit yang lalu`;
+//   } else if (seconds < 86400) {
+//     const hours = Math.floor(seconds / 3600);
+//     return `${hours} jam yang lalu`;
+//   } else if (seconds < 2592000) {
+//     const days = Math.floor(seconds / 86400);
+//     return `${days} hari yang lalu`;
+//   } else if (seconds < 31536000) {
+//     const months = Math.floor(seconds / 2592000);
+//     return `${months} bulan yang lalu`;
+//   } else {
+//     return `sedang memuat...`;
+//   }
+// }
+
+// function generateStatusObject(id, cuit, timeStamp, isLike) {
+//   const statusObject = {
+//     id,
+//     cuit,
+//     timeStamp: timeSince(new Date(timeStamp)),
+//     isLike,
+//   };
+
+//   // Update timestamp string every second
+//   setInterval(() => {
+//     statusObject.timeStamp = timeSince(new Date(timeStamp));
+//     const timestampElement = document.getElementById(`timestamp-${id}`);
+//     if (timestampElement) {
+//       timestampElement.textContent = statusObject.timeStamp;
+//     }
+//   }, 1000);
+
+//   return statusObject;
+// }
+
+// function makeStatus(statusObject) {
+//   const timestampString = timeSince(statusObject.timeStamp);
+
+//   const htmlStatus = `
+//   <div class="container w-full py-3 border-b border-slate-300 hover:bg-slate-50">
+//   <div class="flex items-start space-x-3">
+//     <div class="flex-shrink-0 rounded-full border border-slate-400">
+//       <img
+//         src="/src/img/pngtree-blue-flat-bird-png-image_4302272.png"
+//         alt="Profile Picture"
+//         class="rounded-full  w-10 h-10 object-cover"
+//       />
+//     </div>
+//     <div class="flex-grow group">
+//       <div class="flex items-center">
+//         <a href="#" class="font-bold dark:text-white mr-2"
+//           >id${statusObject.id}</a
+//         >
+//         <span class="text-gray-500 text-xs mr-2">@${statusObject.id}</span>
+//         <span class="dot text-gray-500 text-xs mr-2"></span>
+//         <span id="timestamp-${
+//           statusObject.id
+//         }" class="text-gray-500 text-sm">${timestampString}</span> <br />
+//       </div>
+//       <div
+//         class="text-gray-900 dark:text-white leading-tight justify-center"
+//       >
+//       ${statusObject.cuit}
+//       </div>
+//       <div
+//         id="cuit-image"
+//         class="mt-2 rounded-xl overflow-hidden group-hover:scale-[96%] transition duration-500 ease-in-out"
+//       >
+//         <img
+//           src="/src/img/list1.jpg"
+//           class="rounded-xl object-cover w-full h-36 md:h-40 lg:h-64 group-hover:scale-[107%] transition duration-500 ease-in-out"
+//           alt="list 1"
+//         />
+//       </div>
+//       <div class="flex justify-start pl-3 mt-2">
+//         <a href="#" class="text-gray-500 hover:text-primary mr-2"
+//           ><i class="far fa-comment fa-lg"></i
+//         ></a>
+//         <a href="#" class="text-gray-500 hover:text-green-500 mr-2"
+//           ><i class="fas fa-retweet fa-lg"></i> 10</
+//         >
+//         <a href="#" id="buttonLike" class="text-gray-500 hover:text-red-500 mr-2 ${
+//           statusObject.isLike ? "text-red-500" : ""
+//         }"><i class="far fa-heart fa-lg"></i> 25</a>
+//       </div>
+//     </div>
+//     </div>
+//   </div>`;
+
+//   return htmlStatus;
+// }
+
+// document.addEventListener(RENDER_EVENT, function () {
+//   const statusContainer = document.querySelector("#statusContainer");
+//   let html = "";
+
+//   // Reverse the statusList array to display the latest status on top
+//   const reversedStatusList = statusList.slice().reverse();
+
+//   // loop through reversedStatusList to generate HTML for each status object
+//   reversedStatusList.forEach(function (statusObject) {
+//     html += makeStatus(statusObject);
+//   });
+
+//   // set the innerHTML of the status container to the generated HTML
+//   statusContainer.innerHTML = html;
 // });
